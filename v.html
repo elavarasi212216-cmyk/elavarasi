@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinayagar Code Reader</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #08020f;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      color: #00ffcc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .main-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1000px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    
+    .ganesha-card {
+      background: rgba(255, 51, 51, 0.05);
+      border: 2px solid #ebff33;
+      border-radius: 16px;
+      padding: 25px;
+      flex: 1 1 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 0 30px hsla(83, 78%, 58%, 0.671);
+    }
+
+    .ganesha-card h1 {
+      color: #ffd700;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px #ffd700;
+    }
+
+    .svg-container {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255,153,51,0.2) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px #ff9933); }
+      50% { transform: scale(1.05); filter: drop-shadow(0 0 25px #ffd700); }
+    }
+
+    .status-badge {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background: #ff9933;
+      color: #000;
+      font-weight: bold;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Right Section: Terminal Code Reader */
+    .terminal-card {
+      background: #11051b;
+      border: 1px solid #00ffcc;
+      border-radius: 16px;
+      padding: 20px;
+      flex: 1 1 450px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.15);
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+      padding-bottom: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+
+    .terminal-title {
+      font-size: 0.85rem;
+      color: #888;
+      margin-left: auto;
+    }
+
+    .code-display {
+      background: #08020f;
+      border-radius: 8px;
+      padding: 15px;
+      height: 250px;
+      overflow-y: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #00ffcc;
+      white-space: pre-wrap;
+      border: 1px solid rgba(0, 255, 204, 0.3);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: #00ffcc;
+      animation: blink 0.8s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .btn-read {
+      margin-top: 15px;
+      background: transparent;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn-read:hover {
+      background: #00ffcc;
+      color: #000;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <div class="ganesha-card">
+      <h1>B Day Ganesha</h1>
+      <div class="svg-container">
+        <svg viewBox="0 0 100 100" width="160" height="160">
+          
+          <polygon points="50,10 38,32 62,32" fill="#ffd700" stroke="#ff9933" stroke-width="1.5"/>
+          <circle cx="50" cy="18" r="3" fill="#d4380d"/>
+          
+          
+          <ellipse cx="50" cy="42" rx="16" ry="14" fill="#ff9933"/>
+          <path d="M 34 38 Q 20 32 26 50 Q 34 52 35 44 Z" fill="#ff9933"/>
+          <path d="M 66 38 Q 80 32 74 50 Q 66 52 65 44 Z" fill="#ff9933"/>
+          
+          
+          <path d="M 46 32 H 54 V 35 H 46 Z" fill="#ffd700"/>
+          <path d="M 50 32 V 42" stroke="#d4380d" stroke-width="2"/>
+          
+          
+          <circle cx="43" cy="40" r="1.8" fill="#000"/>
+          <circle cx="57" cy="40" r="1.8" fill="#000"/>
+          
+         
+          <path d="M 50 46 C 50 62 68 62 65 52 C 63 46 56 52 56 52" fill="none" stroke="#ff9933" stroke-width="6" stroke-linecap="round"/>
+          
+          
+          <path d="M 64 49 Q 67 43 70 49 Q 67 52 64 49 Z" fill="#ffd700"/>
+        </svg>
+      </div>
+      <div class="status-badge" id="status">by Elavarasi</div>
+    </div>
+
+    <div class="terminal-card">
+      <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span class="terminal-title">ganesha.js</span>
+      </div>
+
+      <div class="code-display">
+        <span id="codeContent"></span><span class="cursor"></span>
+      </div>
+
+      <button class="btn-read" onclick="startCodeReading()">▶ GANESHA BLESSING </button>
+    </div>
+
+  </div>
+
+  <script>
+    const codeSnippet = `// heppy B day Ganesha ...
+const Elavarasi = {
+  name: "Vinayagar",
+  attributes: ["Wisdom", "Prosperity", "Obstacle Remover"],
+  blessing: function() {
+    return "Success Happiness Money you and your family!";
+  }
+};
+
+// HTML Structure
+<div class="ganesha-blessing">
+  <h1>happy B day Ganesha
+    wish by Elavarasi</h1>
+</div>
+
+// CSS Styling
+.blessing {
+  color: #ffd700;
+  text-shadow: 0 0 10px #ff9933;
+}
+
+// Completed Successfully Elavarasi !`;
+
+    let index = 0;
+    let isReading = false;
+
+    function startCodeReading() {
+      if (isReading) return;
+      
+      isReading = true;
+      index = 0;
+      document.getElementById('codeContent').textContent = '';
+      document.getElementById('status').textContent = 'by ELAVARASI';
+
+      function typeChar() {
+        if (index < codeSnippet.length) {
+          document.getElementById('codeContent').textContent += codeSnippet.charAt(index);
+          index++;
+          
+          const container = document.querySelector('.code-display');
+          container.scrollTop = container.scrollHeight;
+          
+          setTimeout(typeChar, 25);
+        } else {
+          isReading = false;
+          document.getElementById('status').textContent = 'by ELAVARASI';
+        }
+      }
+
+      typeChar();
+    }
+  </script>
+</body>
+</html>
